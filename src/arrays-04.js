@@ -20,7 +20,11 @@
  * @returns {number} The sum.
  */
 function getAbsoluteSum(nums) {
-  // TODO: implement code
+  let sum = 0;
+  nums.forEach(element => {
+    sum += Math.abs(element);
+  });
+  return sum;
   // HINT: Use a loop and Math.abs() to add the absolute values.
 }
 
@@ -30,7 +34,8 @@ function getAbsoluteSum(nums) {
  * @returns {Array} A new array with only non-string elements.
  */
 function removeStrings(arr) {
-  // TODO: implement code
+  arr = arr.filter(item => typeof item != 'string');
+  return arr;
   // HINT: Use filter() and check that typeof item is not 'string'.
 }
 
@@ -40,7 +45,13 @@ function removeStrings(arr) {
  * @returns {Array<number>} An array [min, max] or [] if empty.
  */
 function findMinMax(arr) {
-  // TODO: implement code
+  let array = [...arr];
+  if (array.length > 0) {
+    return [Math.min(...array), Math.max(...array)];
+  }
+  else {
+    return [];
+  }
   // HINT: If the array is not empty, use Math.min and Math.max with spread syntax.
 }
 
@@ -51,7 +62,14 @@ function findMinMax(arr) {
  * @returns {string} The formatted telephone number.
  */
 function getTelNo(numbers) {
-  // TODO: implement code
+  let arr = [...numbers];
+  arr = arr.filter(item => typeof item === 'number');
+  let first = arr.slice(0, 3);
+  let second = arr.slice(3, 6);
+  let third = arr.slice(6, arr.length);
+  let phone = "(";
+  phone += first[0].toString() + first[1] + first[2] + ") " + second[0] + second[1] + second[2] + "-" + third[0] + third[1] + third[2] + third[3];
+  return phone;
   // HINT: Make a shallow copy, then use array methods (like splice and join) to format.
 }
 
